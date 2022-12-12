@@ -10,12 +10,12 @@ func (n Node) Print() {
 	fmt.Printf("NODE %v: (%v,%v) > Neighbours: %v\n", string(n.Height), n.Row, n.Col, neighbours)
 }
 
-func (h MinPath) Len() int            { return len(h) }
-func (h MinPath) Less(i, j int) bool  { return h[i].Distance < h[j].Distance }
-func (h MinPath) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
-func (h *MinPath) Push(p interface{}) { *h = append(*h, p.(Path)) }
+func (h MinHeap) Len() int            { return len(h) }
+func (h MinHeap) Less(i, j int) bool  { return h[i].Distance < h[j].Distance }
+func (h MinHeap) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
+func (h *MinHeap) Push(p interface{}) { *h = append(*h, p.(Path)) }
 
-func (h *MinPath) Pop() interface{} {
+func (h *MinHeap) Pop() interface{} {
 	old := *h
 	n := len(old)
 	p := old[n-1]

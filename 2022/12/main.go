@@ -18,11 +18,11 @@ type Path struct {
 	LastNode *Node
 }
 
-type MinPath []Path
+type MinHeap []Path
 
 func (start *Node) Dijkstra(end *Node) int {
 	visited := make(map[*Node]bool)
-	h := &MinPath{Path{Distance: 0, LastNode: start}}
+	h := &MinHeap{Path{Distance: 0, LastNode: start}}
 	for h.Len() > 0 {
 		p := heap.Pop(h).(Path)
 		if visited[p.LastNode] {
