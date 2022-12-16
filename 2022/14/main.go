@@ -1,7 +1,6 @@
 package main
 
 import (
-	"advent-of-go/utils"
 	"fmt"
 )
 
@@ -12,30 +11,8 @@ type Bounds struct {
 	Bottom int
 }
 
-func (b *Bounds) Stretch(rock [2]int) {
-	if rock[0] < b.Left {
-		b.Left = rock[0]
-	}
-	if rock[0] > b.Right {
-		b.Right = rock[0]
-	}
-	if rock[1] < b.Bottom {
-		b.Bottom = rock[1]
-	}
-	if rock[1] > b.Top {
-		b.Top = rock[1]
-	}
-}
-
-func Delta(h, t [2]int) (int, int) {
-	return utils.Sign(t[0] - h[0]), utils.Sign(t[1] - h[1])
-}
-
 func MapRocks() [][2]int {
 	inputs := StreamInput()
-	// origin := [2]int{500, 0}
-	// bounds := Bounds{500, 500, 0, 0}
-
 	var rocks [][2]int
 	for input := range inputs {
 		head := input[0]
